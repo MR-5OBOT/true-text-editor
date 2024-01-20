@@ -1,7 +1,6 @@
 # My.Neovim
+![image](https://github.com/MR-5OBOT/true-text-editor/assets/115130443/f369c81f-03bb-4ad7-8464-a0592eb8afbc)
 
-![image](![image](https://github.com/MR-5OBOT/true-text-editor/assets/115130443/61390d17-cc3d-47ff-8b0e-4b27af2bdca4)
-)
 
 
 ## plugins used :
