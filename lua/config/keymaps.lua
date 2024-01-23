@@ -68,9 +68,9 @@ map('n', '<leader>mp', '<cmd> MarkdownPreview<CR>', { noremap = true, silent = t
 -- Close Markdown Preview
 map('n', '<leader>mc', '<cmd> MarkdownPreviewStop<CR>', { noremap = true, silent = true })
 
--- keybinds for imgr-image-uploader
-keymap('n', '<leader>z', ':lua upload_image_and_insert_link()<CR>', {noremap = true})
-
+-- latex vimtext
+keymap('n', '<leader>lc', '<cmd>VimtexComplie<cr>', {desc = 'start vimtex compiler', silent = true })
+keymap('n', '<leader>lv', '<cmd>VimtexView<cr>', {desc = 'start vimtex preview app', silent = true })
 
 
 
