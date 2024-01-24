@@ -17,6 +17,44 @@ return {
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    --   פּ ﯟ   some other good icons
+    local kind_icons = {
+      Text = "",
+      -- Text = "",
+      Method = "m",
+      -- Function = "",
+      Function = "",
+      Constructor = "",
+      Field = "",
+      Variable = "",
+      Class = "",
+      -- Class = "",
+      Interface = "",
+      Module = "",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+    -- Keyword = "",
+      Keyword = "",
+      Snippet = "",
+      -- Color = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      -- Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+      -- TypeParameter = "",
+    }
+    -- find more here: https://www.nerdfonts.com/cheat-sheet
+
+    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
@@ -32,7 +70,7 @@ return {
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<C-x>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
       }),
       -- sources for autocompletion
@@ -41,6 +79,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "vimtex" }, -- latex cmp
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {

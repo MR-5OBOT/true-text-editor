@@ -1,11 +1,11 @@
 return {
  "williamboman/mason.nvim",
  dependencies = {
- "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason-lspconfig.nvim",
  },
  config = function()
-    require'lspconfig'.texlab.setup{} -- latex filetype
-    -- import mason
+    require'lspconfig'.texlab.setup{}
+
     local mason = require("mason")
 
     -- import mason-lspconfig
@@ -35,8 +35,6 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
-        "texlab",
-        "ltex",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
