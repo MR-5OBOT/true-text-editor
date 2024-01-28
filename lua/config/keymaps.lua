@@ -8,8 +8,8 @@
 
 -----------------------------------------------
 local opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set
-local map = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set -- new
+local map = vim.api.nvim_set_keymap -- old
 ------------------------------------------------
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -25,7 +25,6 @@ keymap('n', 'r', '<C-r>')                              -- Faster redo
 keymap('n', '<leader>ms', ':%s/')                      -- Easier multi select and remove
 keymap("n", "<Enter>", "<cmd>nohlsearch<CR>", opts)    -- Clear search
 ----------------------------------------------------------------------------------------------------------------
-keymap("n", "<leader>rn", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])	-- Rename
 keymap("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { desc = "Chmod +x without leaving document", silent = true })
 keymap('n', '<leader>lw', function() vim.cmd('set wrap!') end, { desc = 'Toggle [w]rap' })
 ----------------------------------------------------------------------------------------------------------------
@@ -61,16 +60,18 @@ keymap('n', '<TAB>', '<CMD>BufferLineCycleNext<CR>', { desc = "bufferNext"})
 keymap('n', '<S-TAB>', '<CMD>BufferLineCyclePrev<CR>', { desc = "bufferPrev"})
 keymap("n", "<leader>bx", "<CMD>BufferLinePickClose<CR>", { desc = "CloseBuffer"})
 
--- binding for Markdown Preview
 -- Open Markdown Preview
 map('n', '<leader>mp', '<cmd> MarkdownPreview<CR>', { noremap = true, silent = true })
-
 -- Close Markdown Preview
 map('n', '<leader>mc', '<cmd> MarkdownPreviewStop<CR>', { noremap = true, silent = true })
 
--- latex vimtext
-keymap('n', '<leader>lc', '<cmd>VimtexComplie<cr>', {desc = 'start vimtex compiler', silent = true })
-keymap('n', '<leader>lv', '<cmd>VimtexView<cr>', {desc = 'start vimtex preview app', silent = true })
+-- pdlatex | zathura 
+_G.CompileAndView = function()
+ vim.cmd('silent !pdflatex -interaction=nonstopmode %:p')
+ vim.cmd('silent !zathura %:r.pdf &')
+end
+
+keymap('n', '<Leader>lv', ':lua CompileAndView()<CR>', {noremap = true, silent = true})
 
 
 
