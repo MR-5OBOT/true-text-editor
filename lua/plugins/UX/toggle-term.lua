@@ -15,27 +15,16 @@ return {
   open_mapping = [[<C-\>]],
   autochdir = true, -- when neovim changes it current directory the terminal will change it's own when next it's opened
   close_on_exit = true, -- close the terminal window when the process exits
-  -- shade_terminals = true, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
   start_in_insert = true,
-  -- shading_factor = 2, -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
   direction = 'float',
   auto_scroll = true, -- automatically scroll to the bottom on terminal output
 
   float_opts = {
-        border = 'curved',
-        -- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+        border = 'single',
         width = 200,
         height = 100,
-        winblend = 10,
+        -- winblend = 10,
         },
-  -- This field is only relevant if direction is set to 'float'
-  winbar = {
-    enabled = false,
-    name_formatter = function(term) --  term: Terminal
-      return term.name
-    end
-  },
-
 })
 
 -- Fast Terminal Apps
@@ -47,20 +36,6 @@ function _LAZYGIT_TOGGLE()
   lazygit:toggle()
 end
 
-local node = Terminal:new({cmd = "node", hidden = true})
-function _NODE_TOGGLE()
-  node:toggle()
-end
-
-local htop = Terminal:new({cmd = "htop", hidden = true})
-function _BTOP_TOGGLE()
-  htop:toggle()
-end
-
-local python = Terminal:new({cmd = "python", hidden = true})
-function _PYTHON_TOGGLE()
-  python:toggle()
-end
 end,
 }
 
