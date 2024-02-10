@@ -6,6 +6,8 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
+require'lspconfig'.texlab.setup{}
+
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
