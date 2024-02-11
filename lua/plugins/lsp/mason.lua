@@ -4,6 +4,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
  },
  config = function()
+
     require'lspconfig'.texlab.setup{}
 
     local mason = require("mason")
