@@ -60,18 +60,13 @@ keymap('n', '<TAB>', '<CMD>BufferLineCycleNext<CR>', { desc = "bufferNext"})
 keymap('n', '<S-TAB>', '<CMD>BufferLineCyclePrev<CR>', { desc = "bufferPrev"})
 keymap("n", "<leader>bx", "<CMD>BufferLinePickClose<CR>", { desc = "CloseBuffer"})
 
--- Open Markdown Preview
-map('n', '<leader>mp', '<cmd> MarkdownPreview<CR>', { noremap = true, silent = true })
--- Close Markdown Preview
-map('n', '<leader>mc', '<cmd> MarkdownPreviewStop<CR>', { noremap = true, silent = true })
-
 -- pdlatex | zathura 
 _G.CompileAndView = function()
- vim.cmd('silent !pdflatex -interaction=nonstopmode %:p')
+ -- vim.cmd('silent !pdflatex -interaction=nonstopmode %:p')
  vim.cmd('silent !zathura %:r.pdf &')
 end
 
-keymap('n', '<Leader>lv', ':lua CompileAndView()<CR>', {noremap = true, silent = true})
+keymap('n', '<Leader>z', ':lua CompileAndView()<CR>', {noremap = true, silent = true})
 
 
 
