@@ -4,14 +4,14 @@ return {
  local notify = require("notify")
  local default = {
   stages = "fade_in_slide_out",
-  -- render = "minimal",
+  render = "minimal",
   timeout = 1000,
   minimum_width = 18,
   icons = {
    ERROR = "",
    WARN = "",
    INFO = "",
-   DEBUG = "",
+   DEBUG = "",
    TRACE = "",
   },
  }
@@ -29,7 +29,5 @@ return {
  vim.cmd [[highlight NvimNotifyError guibg=#000000]]
  vim.cmd [[highlight NvimNotifyDebug guibg=#000000]]
  vim.cmd [[highlight NvimNotifyTrace guibg=#000000]]
-
-
  end,
 }

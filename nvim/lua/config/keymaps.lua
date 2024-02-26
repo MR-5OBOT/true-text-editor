@@ -1,6 +1,5 @@
 ---------------------------------------------------------------
--- ██╗  ██╗███████╗██╗   ██╗███╗   ███╗ █████╗ ██████╗ ███████╗
--- ██║ ██╔╝██╔════╝╚██╗ ██╔╝████╗ ████║██╔══██╗██╔══██╗██╔════╝
+-- ██╗  ██╗███████╗██╗   ██╗███╗   ███╗ █████╗ ██████╗ ███████╗ ██║ ██╔╝██╔════╝╚██╗ ██╔╝████╗ ████║██╔══██╗██╔══██╗██╔════╝
 -- █████╔╝ █████╗   ╚████╔╝ ██╔████╔██║███████║██████╔╝███████╗
 -- ██╔═██╗ ██╔══╝    ╚██╔╝  ██║╚██╔╝██║██╔══██║██╔═══╝ ╚════██║
 -- ██║  ██╗███████╗   ██║   ██║ ╚═╝ ██║██║  ██║██║     ███████║
@@ -22,7 +21,7 @@ keymap("i", "jk", "<ESC>", opts)                       -- Press jk fast to exit 
 keymap({"n", "v"}, "L", "$", opts)                            -- easy go to end of line
 keymap({"n", "v"}, "H", "^", opts)                            -- easy go to the start of line
 keymap('n', 'r', '<C-r>')                              -- Faster redo
-keymap('n', '<leader>ms', ':%s/')                      -- Easier multi select and remove
+keymap('n', '<leader>ms', ':%s/', {desc = "multi select & replace"})                      -- Easier multi select and remove
 keymap("n", "<Enter>", "<cmd>nohlsearch<CR>", opts)    -- Clear search
 ----------------------------------------------------------------------------------------------------------------
 keymap("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { desc = "Chmod +x without leaving document", silent = true })
@@ -39,15 +38,6 @@ keymap("n", "<C-l>", "<C-w>l", opts) -- Better window navigation
 keymap("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true }) -- Allow moving the cursor through wrapped lines
 keymap("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true }) -- Allow moving the cursor through wrapped lines
 ----------------------------------------------------------------------------------------------------------------
--- vim.keymap('n', '<C-a>', 'ggVG') -- selection all tex
-
-
--- ██████╗ ██╗     ██╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗    ███╗   ███╗ █████╗ ██████╗ ███████
--- ██╔══██╗██║     ██║   ██║██╔════╝ ██║████╗  ██║██╔════╝    ████╗ ████║██╔══██╗██╔══██╗██╔════╝
--- ██████╔╝██║     ██║   ██║██║  ███╗██║██╔██╗ ██║███████╗    ██╔████╔██║███████║██████╔╝███████
--- █╔═══╝  ██║     ██║   ██║██║   ██║██║██║╚██╗██║╚════██║    ██║╚██╔╝██║██╔══██║██╔═══╝ ╚════██║
--- ██║     ███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║███████║    ██║ ╚═╝ ██║██║  ██║██║     ███████
--- ╚═╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝
 
 keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
@@ -60,13 +50,11 @@ keymap('n', '<TAB>', '<CMD>BufferLineCycleNext<CR>', { desc = "bufferNext"})
 keymap('n', '<S-TAB>', '<CMD>BufferLineCyclePrev<CR>', { desc = "bufferPrev"})
 keymap("n", "<leader>bx", "<CMD>BufferLinePickClose<CR>", { desc = "CloseBuffer"})
 
--- pdlatex | zathura 
+-- -- pdlatex | zathura 
 _G.CompileAndView = function()
- -- vim.cmd('silent !pdflatex -interaction=nonstopmode %:p')
  vim.cmd('silent !zathura %:r.pdf &')
 end
-
-keymap('n', '<Leader>z', ':lua CompileAndView()<CR>', {noremap = true, silent = true})
+keymap('n', '<Leader>lv', ':lua CompileAndView()<CR>', {noremap = true, silent = true})
 
 
 

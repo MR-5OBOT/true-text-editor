@@ -21,20 +21,10 @@ return {
 
   float_opts = {
         border = 'single',
-        width = 200,
-        height = 100,
-        -- winblend = 10,
+        width = 90,
+        height = 10,
         },
 })
-
--- Fast Terminal Apps
-
-local Terminal = require("toggleterm.terminal").Terminal
-
-local lazygit = Terminal:new({cmd = "lazygit", hidden = true})
-function _LAZYGIT_TOGGLE()
-  lazygit:toggle()
-end
 
 end,
 }
