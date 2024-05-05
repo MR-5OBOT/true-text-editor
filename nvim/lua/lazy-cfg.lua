@@ -22,7 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
  { import = "plugins.core-plugins" },
- -- { import = "plugins.latex" },
+ { import = "plugins.lualine" },
  { import = "plugins.lsp" },
  { import = "plugins.UI" },
  { import = "plugins.UX" },

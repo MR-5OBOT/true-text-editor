@@ -5,7 +5,7 @@ return {
 		config = function()
       vim.cmd.colorscheme("oxocarbon")
 	    vim.opt.background = "dark"
-			vim.cmd("highlight FloatBorder guifg=#202020")
+			-- vim.cmd("highlight FloatBorder guifg=#202020")
 		end,
 }
 

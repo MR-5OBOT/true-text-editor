@@ -21,8 +21,8 @@ return {
 
   float_opts = {
         border = 'single',
-        width = 90,
-        height = 10,
+        -- width = 90,
+        -- height = 10,
         },
 })
 

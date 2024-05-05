@@ -10,7 +10,7 @@ return {
     return " " .. icon .. count
 end,
       mode = "buffers",
-      separator_style = "",
+      separator_style = "slope",
       offsets = {
       {
         filetype = "NvimTree",
