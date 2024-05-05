@@ -1,4 +1,3 @@
----@diagnostic disable: duplicate-index
 ------------------------------------------------------------------
 -- ███████╗███████╗████████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗
 -- ██╔════╝██╔════╝╚══██╔══╝╚══██╔══╝██║████╗  ██║██╔════╝ ██╔════╝
@@ -19,8 +18,7 @@ local options = {
   autoindent = true,                       -- Copies the indentation from the current line when starting a new line
   copyindent = true,                       -- Copy the previous indentation on autoindenting.
   backspace = "indent,eol,start",          -- Determines the behavior of the Backspace key
-  iskeyword = "-",                         -- Specifies which characters are considered part of a keyword
-  iskeyword = "/",                         -- Specifies which characters are considered part of a keyword
+  iskeyword = "-,/",                       -- Specifies which characters are considered part of a keyword
   termguicolors = true,                    -- set term gui colors (most terminals support this)
   cursorline = true,                       -- highlight the current line
   guicursor = "n:blinkon200,i-ci-ve:ver25", -- Enable cursor blink.
@@ -109,7 +107,3 @@ end
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
--- for k, v in pairs(globals) do
--- 	vim.g[k] = v
--- end
