@@ -19,6 +19,7 @@ keymap("n", "<Enter>", "<cmd>nohlsearch<CR>", opts)    -- Clear search
 keymap("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { desc = "Chmod +x without leaving document", silent = true })
 keymap('n', '<TAB>', '<cmd>bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
 keymap('n', '<S-Tab>', '<cmd>bprev<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
+keymap('n', '<leader>ms', ':%s/', {desc = "multi select & replace"})                      -- Easier multi select and remove
 -- keymap("n", "<leader>x", ":bd<CR>", {desc = "close buffer"})
 
 ----------------------------------------------------------------------------------------------------------------
@@ -46,6 +47,5 @@ keymap('n', '<leader>z', ':!zathura %<CR>', { noremap = true, silent = true })
 ----------------------------------------------------------------------------------------------------------------
 -- keymap("n", "<leader>/", "<C-W>v", { desc = "Split window right", remap = true })
 -- keymap("n", "<C-c>", "<cmd>close<CR>", { desc = "Close Split window" })
--- keymap('n', '<leader>ms', ':%s/', {desc = "multi select & replace"})                      -- Easier multi select and remove
 
 
