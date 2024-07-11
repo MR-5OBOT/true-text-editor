@@ -7,6 +7,4 @@
 
 - lazy.nvim = plugins manager
 - telescop = fuzy finder
-- nvim-tree = file explorer
-- harpoon = for file marks
-- treesitter = 
+- noe-tree = file explorer
