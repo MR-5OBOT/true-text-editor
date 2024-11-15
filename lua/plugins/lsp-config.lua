@@ -47,16 +47,36 @@ return {
             local function setup_keymaps(bufnr)
                 local opts = { noremap = true, silent = true, buffer = bufnr }
                 local mappings = {
-                    ["gD"] = function() vim.lsp.buf.declaration() end,
-                    ["gd"] = function() vim.lsp.buf.definition() end,
-                    ["gi"] = function() vim.lsp.buf.implementation() end,
-                    ["gr"] = function() vim.lsp.buf.references() end,
-                    ["K"] = function() vim.lsp.buf.hover() end,
-                    ["<leader>rn"] = function() vim.lsp.buf.rename() end,
-                    ["<leader>ca"] = function() vim.lsp.buf.code_action() end,
-                    ["<leader>d"] = function() vim.diagnostic.open_float() end,
-                    ["[d"] = function() vim.diagnostic.goto_prev({ float = { border = "rounded" }}) end,
-                    ["]d"] = function() vim.diagnostic.goto_next({ float = { border = "rounded" }}) end,
+                    ["gD"] = function()
+                        vim.lsp.buf.declaration()
+                    end,
+                    ["gd"] = function()
+                        vim.lsp.buf.definition()
+                    end,
+                    ["gi"] = function()
+                        vim.lsp.buf.implementation()
+                    end,
+                    ["gr"] = function()
+                        vim.lsp.buf.references()
+                    end,
+                    ["K"] = function()
+                        vim.lsp.buf.hover()
+                    end,
+                    ["<leader>rn"] = function()
+                        vim.lsp.buf.rename()
+                    end,
+                    ["<leader>ca"] = function()
+                        vim.lsp.buf.code_action()
+                    end,
+                    ["<leader>d"] = function()
+                        vim.diagnostic.open_float()
+                    end,
+                    ["[d"] = function()
+                        vim.diagnostic.goto_prev({ float = { border = "rounded" } })
+                    end,
+                    ["]d"] = function()
+                        vim.diagnostic.goto_next({ float = { border = "rounded" } })
+                    end,
                 }
 
                 for k, v in pairs(mappings) do
@@ -87,7 +107,9 @@ return {
                             vim.lsp.buf.format({
                                 async = false,
                                 timeout_ms = 2000,
-                                filter = function(c) return c.name == client.name end
+                                filter = function(c)
+                                    return c.name == client.name
+                                end,
                             })
                         end,
                     })
@@ -127,7 +149,7 @@ return {
                     },
                 },
                 -- TypeScript/JavaScript
-                tsserver = {
+                ts_ls = {
                     settings = {
                         typescript = {
                             inlayHints = {
