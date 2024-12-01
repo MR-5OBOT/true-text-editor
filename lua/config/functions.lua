@@ -18,19 +18,6 @@ vim.api.nvim_create_user_command("SetColorScheme", function(opts)
         print("Please provide a valid color scheme name.")
     end
 end, {
-    nargs = 1,          -- Requires exactly one argument (the color scheme name)
+    nargs = 1, -- Requires exactly one argument (the color scheme name)
     complete = "color", -- Provides autocompletion for available color schemes
-})
-
--- turn off lsp in big file to avoid crash
-vim.api.nvim_create_autocmd("BufReadPre", {
-    callback = function()
-        local max_filesize = 100 * 1024 -- 100KB
-        local file = vim.fn.expand("%:p")
-        if vim.fn.getfsize(file) > max_filesize then
-            vim.cmd("LspStop")
-            vim.notify("LSP disabled for large file (>100KB).", vim.log.levels.INFO)
-        end
-    end,
-    desc = "Disable LSP for large files (>100KB)",
 })
