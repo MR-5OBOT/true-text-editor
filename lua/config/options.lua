@@ -19,6 +19,7 @@ opt.splitright = true -- Vertical splits go right
 opt.updatetime = 300 -- Update time for CursorHold
 opt.backup = false -- Disable backups
 opt.undofile = true -- Enable persistent undo
+opt.swapfile = false
 opt.history = 100 -- Command history size
 opt.linebreak = true -- Don't split words when wrapping
 opt.wrap = false -- Disable line wrapping
@@ -26,7 +27,8 @@ opt.cmdheight = 2 -- Command line height
 opt.cursorline = true -- Highlight current line
 opt.fileencoding = "utf-8" -- File encoding
 opt.laststatus = 3
--- opt.lazyredraw = true           -- Improve performance during redraw
+opt.smartindent = true -- Enable smart indentation
+-- opt.lazyredraw = true         -- Improve performance during redraw
 
 -- Disable built-in plugins
 vim.g.loaded_netrw = 1 -- Disable Netrw
