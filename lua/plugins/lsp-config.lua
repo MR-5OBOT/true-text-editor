@@ -47,36 +47,36 @@ return {
             local function setup_keymaps(bufnr)
                 local opts = { noremap = true, silent = true, buffer = bufnr }
                 local mappings = {
-                    ["gD"] = function()
-                        vim.lsp.buf.declaration()
-                    end,
-                    ["gd"] = function()
-                        vim.lsp.buf.definition()
-                    end,
-                    ["gi"] = function()
-                        vim.lsp.buf.implementation()
-                    end,
+                    -- ["gD"] = function()
+                    --     vim.lsp.buf.declaration()
+                    -- end,
+                    -- ["gd"] = function()
+                    --     vim.lsp.buf.definition()
+                    -- end,
+                    -- ["gi"] = function()
+                    --     vim.lsp.buf.implementation()
+                    -- end,
                     ["gr"] = function()
                         vim.lsp.buf.references()
                     end,
                     ["K"] = function()
                         vim.lsp.buf.hover()
                     end,
-                    ["<leader>rn"] = function()
-                        vim.lsp.buf.rename()
-                    end,
-                    ["<leader>ca"] = function()
-                        vim.lsp.buf.code_action()
-                    end,
-                    ["<leader>d"] = function()
-                        vim.diagnostic.open_float()
-                    end,
-                    ["[d"] = function()
-                        vim.diagnostic.goto_prev({ float = { border = "rounded" } })
-                    end,
-                    ["]d"] = function()
-                        vim.diagnostic.goto_next({ float = { border = "rounded" } })
-                    end,
+                    -- ["<leader>rn"] = function()
+                    --     vim.lsp.buf.rename()
+                    -- end,
+                    -- ["<leader>ca"] = function()
+                    --     vim.lsp.buf.code_action()
+                    -- end,
+                    -- ["<leader>d"] = function()
+                    --     vim.diagnostic.open_float()
+                    -- end,
+                    -- ["[d"] = function()
+                    --     vim.diagnostic.goto_prev({ float = { border = "rounded" } })
+                    -- end,
+                    -- ["]d"] = function()
+                    --     vim.diagnostic.goto_next({ float = { border = "rounded" } })
+                    -- end,
                 }
 
                 for k, v in pairs(mappings) do

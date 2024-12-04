@@ -1,6 +1,6 @@
 local function skip_large_files()
     local file_path = vim.api.nvim_buf_get_name(0)
-    return vim.fn.getfsize(file_path) < 1000000 -- Skip files larger than 1MB
+    return vim.fn.getfsize(file_path) < 100000 -- Skip large files
 end
 
 return {
@@ -101,4 +101,3 @@ return {
         end,
     },
 }
-
