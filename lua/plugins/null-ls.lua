@@ -39,8 +39,14 @@ return {
                         condition = skip_large_files,
                     }),
                     formatting.stylua.with({
-                        extra_args = { "--column-width=120", "--indent-type=spaces", "--indent-width=4" },
-                        condition = skip_large_files,
+                        extra_args = {
+                            "--column-width=160",        -- Allow long lines up to 140 characters
+                            "--indent-type=spaces",      -- Use spaces for indentation
+                            "--indent-width=4",          -- 4 spaces for indentation
+                            "--align-array-table=false", -- No forced alignment for tables/arrays
+                            "--call-parentheses=false",  -- Avoid forced multi-line calls
+                            "--quote-style=auto",        -- Use consistent quotes
+                        },
                     }),
                     formatting.black.with({
                         extra_args = { "--line-length=120" },

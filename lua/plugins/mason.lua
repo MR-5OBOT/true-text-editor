@@ -57,7 +57,6 @@ return {
                     -- Linters
                     "eslint_d",
                     "flake8",
-                    "luacheck",
                 },
                 auto_update = true,
                 run_on_start = true,
