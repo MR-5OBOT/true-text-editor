@@ -72,16 +72,16 @@ return {
                     code_actions.gitsigns,
                     code_actions.eslint_d,
                 },
-                on_attach = function(client, bufnr)
-                    vim.keymap.set("n", "<leader>f", function()
-                        vim.lsp.buf.format({
-                            async = false,
-                            timeout_ms = 2000,
-                            filter = function(c)
-                                return c.name == "null-ls"
-                            end,
-                        })
-                    end, { buffer = bufnr, desc = "Format buffer" })
+                -- on_attach = function(client, bufnr)
+                --     vim.keymap.set("n", "<leader>f", function()
+                --         vim.lsp.buf.format({
+                --             async = false,
+                --             timeout_ms = 2000,
+                --             filter = function(c)
+                --                 return c.name == "null-ls"
+                --             end,
+                --         })
+                --     end, { buffer = bufnr, desc = "Format buffer" })
 
                     if client.supports_method("textDocument/formatting") then
                         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
