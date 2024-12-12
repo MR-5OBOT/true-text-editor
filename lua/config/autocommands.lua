@@ -4,6 +4,7 @@ local au = vim.api.nvim_create_autocmd
 -- Disable commenting new lines
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
 -- return to last edit position when opening files
 vim.api.nvim_create_autocmd("BufReadPost", {
     pattern = "*",

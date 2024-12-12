@@ -15,7 +15,7 @@ return {
                     horizontal = {
                         -- prompt_position = "top", -- Position of the prompt
                         preview_width = 0.6, -- Width of the preview window
-                        results_width = 0.8, -- Width of the results window
+                        -- results_width = 0.2, -- Width of the results window
                     },
                 },
                 -- prompt_prefix = "   ", -- Custom prompt prefix
@@ -25,10 +25,6 @@ return {
                         ["<C-k>"] = actions.move_selection_previous, -- Move up in insert mode
                         ["<esc>"] = actions.close,                   -- Close the picker
                     },
-                    n = {
-                        ["<C-j>"] = actions.move_selection_next,     -- Move down in normal mode
-                        ["<C-k>"] = actions.move_selection_previous, -- Move up in normal mode
-                    }
                 }
             },
             pickers = {
@@ -37,11 +33,15 @@ return {
                     hidden = true,                                                                  -- Allow searching hidden files
                     find_command = { 'rg', '--files', '--hidden', '--ignore', '--glob', '!.git/*' } -- Exclude .git files
                 },
-            }
+            },
+            extentions = {
+                fzf = {}
+            },
         }
 
         -- keymaps
         local builtin = require('telescope.builtin')
+
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
         vim.keymap.set("n", "<space>fb", builtin.buffers, { desc = 'Telescope Buffers' })
         vim.keymap.set("n", "<space>fh", builtin.help_tags)
