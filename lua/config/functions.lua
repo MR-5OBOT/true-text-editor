@@ -7,17 +7,3 @@ vim.api.nvim_create_user_command("NewTrade", function()
     vim.cmd("edit " .. filename)
     vim.cmd("silent! read templates/new-trade.md")
 end, {})
-
--- Define the command to change the color scheme based on a parameter
-vim.api.nvim_create_user_command("SetColorScheme", function(opts)
-    local scheme = opts.args -- Get the color scheme argument
-    if scheme and scheme ~= "" then
-        -- Switch to the provided color scheme
-        vim.cmd("colorscheme " .. scheme)
-    else
-        print("Please provide a valid color scheme name.")
-    end
-end, {
-    nargs = 1, -- Requires exactly one argument (the color scheme name)
-    complete = "color", -- Provides autocompletion for available color schemes
-})

@@ -13,8 +13,8 @@ return {
                 file_ignore_patterns = { ".git/", "node_modules/", ".DS_Store" }, -- Patterns to ignore
                 layout_config = {
                     horizontal = {
-                        -- prompt_position = "top", -- Position of the prompt
-                        preview_width = 0.6, -- Width of the preview window
+                        prompt_position = "top", -- Position of the prompt
+                        preview_width = 0.6,     -- Width of the preview window
                         -- results_width = 0.2, -- Width of the results window
                     },
                 },
