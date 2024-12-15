@@ -8,16 +8,15 @@
 
 -----------------------------------------------
 local opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set       -- new
-local map = vim.api.nvim_set_keymap -- old
+local keymap = vim.keymap.set
+local map = vim.api.nvim_set_keymap
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-keymap("i", "jk", "<ESC>", opts) -- Press jk fast to exit insert mode
+keymap("i", "jk", "<ESC>", opts)                    -- Press jk fast to exit insert mode
+keymap("n", "<Enter>", "<cmd>nohlsearch<CR>", opts) -- Clear search
 keymap('n', '<TAB>', '<cmd>bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
-keymap('n', '<S-Tab>', '<cmd>bprev<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
-keymap("n", "<Enter>", "<cmd>nohlsearch<CR>", opts)                               -- Clear search
 keymap("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { desc = "Chmod +x without leaving document", silent = true })
 keymap('n', '<leader>ms', ':%s/', { desc = "multi select & replace" })            -- Easier multi select and remove
 
@@ -29,20 +28,14 @@ keymap("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true }
 
 keymap('n', '<leader>e', ':Explore<CR>', { noremap = true, silent = true })
 
--- keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find_files" })
--- keymap("n", "<leader>fl", "<cmd>Telescope live_grep<cr>", { desc = "live_grep_find_text" })
--- keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "find_help" })
+-- Easily hit escape in terminal mode.
+-- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
-
-----------------------------------------------------------------------------------------------------------------
--- keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
-
--- keymap("n", "<leader>/", "<C-W>v", { desc = "Split window right", remap = true })
--- keymap("n", "<C-c>", "<cmd>close<CR>", { desc = "Close Split window" })
--- keymap("n", "<leader>x", ":bd<CR>", {desc = "close buffer"})
-
--- keymap("n", "<C-h>", "<C-w>h", opts) -- Better window navigation
--- keymap("n", "<C-j>", "<C-w>j", opts) -- Better window navigation
--- keymap("n", "<C-k>", "<C-w>k", opts) -- Better window navigation
--- keymap("n", "<C-l>", "<C-w>l", opts) -- Better window navigation
+-- -- Open a terminal at the bottom of the screen with a fixed height.
+-- vim.keymap.set("n", "<leader>z", function()
+--     vim.cmd.new()
+--     vim.cmd.wincmd "J"
+--     vim.api.nvim_win_set_height(0, 12)
+--     vim.wo.winfixheight = true
+--     vim.cmd.term()
+-- end)
