@@ -58,7 +58,7 @@ return {
                         },
                     },
                 },
-                tsserver = {},
+                ts_ls = {},
                 html = {},
                 cssls = {},
             }
