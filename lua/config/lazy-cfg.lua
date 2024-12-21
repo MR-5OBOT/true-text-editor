@@ -23,11 +23,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "plugins" },
     -- { import = "plugins.debugging" },
-    { "folke/neoconf.nvim",   cmd = "Neoconf" },
+    { "folke/neoconf.nvim", cmd = "Neoconf" },
     { "folke/neodev.nvim" },
-
-    -- Add nvim-nio as a dependency for nvim-dap-ui
-    { "nvim-neotest/nvim-nio" }, -- Add this line
 
     -- Other plugins can be added here...
 })
