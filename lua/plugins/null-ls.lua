@@ -34,7 +34,16 @@ return {
                 sources = {
                     -- Formatting
                     formatting.prettier.with({
-                        extra_args = { "--single-quote", "--jsx-single-quote", "--arrow-parens=avoid" },
+                        extra_args = {
+                            "--single-quote",                       -- Use single quotes for JS/JSX, but not for HTML
+                            "--jsx-single-quote",                   -- For JSX, use single quotes
+                            "--html-whitespace-sensitivity=ignore", -- Avoid whitespace changes in HTML
+                            "--tab-width=2",                        -- Set indentation to 2 spaces
+                            "--use-tabs=false",                     -- Use spaces instead of tabs
+                            "--semi=true",                          -- Always add semicolons
+                            "--single-quote=false",                 -- Double quotes for HTML attributes
+                            "--print-width=150",                    -- Set the max print width to 80 characters
+                        },
                         timeout = 7000,
                         condition = skip_large_files,
                     }),

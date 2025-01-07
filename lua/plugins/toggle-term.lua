@@ -15,8 +15,18 @@ return {
             autochdir = true,
             close_on_exit = true,
             start_in_insert = true,
-            direction = 'float',
             auto_scroll = true,
+            direction = 'float',
+
+            float_opts = {
+                border = "single",
+                -- width = 80,
+                -- height = 30,
+                highlights = {
+                    border = "Normal",
+                    background = "Normal",
+                },
+            },
 
         })
     end,

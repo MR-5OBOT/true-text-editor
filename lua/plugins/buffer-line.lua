@@ -17,6 +17,7 @@ return {
                     text = "File Explorer",
                     highlight = "Directory",
                     separator = true,
+                    padding = 1,
                 }
             },
         },

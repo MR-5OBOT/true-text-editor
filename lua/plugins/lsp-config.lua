@@ -32,14 +32,21 @@ return {
                 end
             end
 
+
             -- On attach handler
             local function on_attach(client, bufnr)
                 set_keymaps(bufnr)
+
+                -- Skip formatting for HTML files and let null-ls handle it
                 if client.server_capabilities.documentFormattingProvider then
                     vim.api.nvim_create_autocmd("BufWritePre", {
                         buffer = bufnr,
                         callback = function()
-                            vim.lsp.buf.format({ async = false })
+                            local filetype = vim.bo[bufnr].filetype
+                            -- Skip formatting if filetype is html and allow null-ls to handle it
+                            if filetype ~= "html" then
+                                vim.lsp.buf.format({ async = false })
+                            end
                         end,
                     })
                 end

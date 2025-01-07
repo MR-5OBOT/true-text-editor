@@ -48,9 +48,7 @@ return {
 
         -- live grep with cursor style
         vim.keymap.set("n", "<space>fg", function()
-            local opts = require("telescope.themes").get_cursor({
-                cwd = vim.fn.stdpath("config")
-            })
+            local opts = require("telescope.themes").get_cursor()
             require("telescope.builtin").live_grep(opts)
         end)
 
