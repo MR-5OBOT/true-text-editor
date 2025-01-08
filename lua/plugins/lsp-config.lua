@@ -32,7 +32,6 @@ return {
                 end
             end
 
-
             -- On attach handler
             local function on_attach(client, bufnr)
                 set_keymaps(bufnr)
@@ -70,6 +69,7 @@ return {
                 cssls = {},
             }
 
+            -- Setup each LSP server with additional configuration
             for server, config in pairs(servers) do
                 lspconfig[server].setup(vim.tbl_deep_extend("force", {
                     on_attach = on_attach,

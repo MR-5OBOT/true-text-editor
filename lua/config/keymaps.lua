@@ -32,19 +32,3 @@ keymap("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true }
 keymap("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true }) -- Allow moving the cursor through wrapped lines
 
 keymap('n', '<leader>e', ':Explore<CR>', { noremap = true, silent = true })
-
--- run the current Python file
--- vim.keymap.set('n', '<leader>r', function()
---         local file = vim.fn.expand('%:p') -- Get the full path of the current file
---         local term_cmd = string.format("python3 %s", file)
---         -- Create a new terminal and run the Python command interactively
---         require("toggleterm.terminal").Terminal
---             :new({
---                 cmd = term_cmd,
---                 direction = "float",    -- Make sure it's in float direction if you want a floating window
---                 close_on_exit = true,   -- Keep terminal open after the Python script finishes
---                 start_in_insert = true, -- Start the terminal in insert mode to allow input
---             })
---             :toggle()
---     end,
---     { noremap = true, silent = true, desc = "Run Python file" })
