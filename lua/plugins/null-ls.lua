@@ -25,9 +25,6 @@ return {
                     "isort",
                     "eslint_d",
                     "flake8",
-                    -- "autopep8", -- Added autopep8
-                    -- "pylint",   -- Added pylint for Python diagnostics
-                    -- "mypy",     -- Added mypy for type checking
                 },
                 automatic_installation = true,
             })
@@ -83,7 +80,7 @@ return {
                     }),
 
                     -- Code Actions
-                    code_actions.gitsigns,
+                    -- code_actions.gitsigns,
                     code_actions.eslint_d,
                 },
                 on_attach = function(client, bufnr)

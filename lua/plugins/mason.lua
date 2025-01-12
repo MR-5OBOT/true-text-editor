@@ -49,14 +49,13 @@ return {
             -- Configure additional tools
             mason_tool_installer.setup({
                 ensure_installed = {
-                    -- Formatters
                     "prettier",
                     "stylua",
                     "black",
                     "isort",
-                    -- Linters
                     "eslint_d",
                     "flake8",
+                    "debugpy", -- Ensuring debugpy is installed
                 },
                 auto_update = true,
                 run_on_start = true,
