@@ -9,4 +9,13 @@ return {
             vim.opt.background = "dark"      -- Ensure dark mode
         end,
     },
+
+    -- other colorschemes
+    {
+        'kdheepak/monochrome.nvim',
+        config = function()
+            vim.cmd 'colorscheme monochrome'
+        end,
+        lazy = true, -- Lazy load monochrome (optional, to save resources on startup)
+    },
 }

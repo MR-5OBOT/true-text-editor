@@ -23,9 +23,19 @@ return {
             local function set_keymaps(bufnr)
                 local opts = { noremap = true, silent = true, buffer = bufnr }
                 local keymaps = {
-                    ["K"] = vim.lsp.buf.hover,
-                    ["[d"] = function() vim.diagnostic.goto_prev({ float = { border = "rounded" } }) end,
-                    ["]d"] = function() vim.diagnostic.goto_next({ float = { border = "rounded" } }) end,
+                    ["K"] = vim.lsp.buf.hover,                                                            -- Show Documentations
+                    ["gd"] = vim.lsp.buf.definition,                                                      -- Go to definition
+                    ["gD"] = vim.lsp.buf.declaration,                                                     -- Go to declaration
+                    ["gr"] = vim.lsp.buf.references,                                                      -- Find references
+                    ["gi"] = vim.lsp.buf.implementation,                                                  -- Go to implementation
+                    ["gs"] = vim.lsp.buf.signature_help,                                                  -- Signature help
+                    ["[d"] = function() vim.diagnostic.goto_prev({ float = { border = "rounded" } }) end, -- Previous diagnostic
+                    ["]d"] = function() vim.diagnostic.goto_next({ float = { border = "rounded" } }) end, -- Next diagnostic
+                    -- ["<Leader>e"] = vim.lsp.diagnostic.show_line_diagnostics,                             -- Show diagnostics
+                    -- ["<Leader>rn"] = vim.lsp.buf.rename,                                                  -- Rename symbol
+                    -- ["<Leader>ca"] = vim.lsp.buf.code_action,                                             -- Trigger code actions
+                    -- ["<Leader>q"] = vim.lsp.diagnostic.set_loclist,                                       -- Add diagnostics to location list
+
                 }
                 for k, v in pairs(keymaps) do
                     vim.keymap.set("n", k, v, opts)
